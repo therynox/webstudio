@@ -21,10 +21,23 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 connectDatabase();
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://therynox-webstudio.vercel.app",
+  "https://therynox.com",
+  "https://www.therynox.com",
+];
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("CORS not allowed"));
+      }
+    },
+    credentials: true,
   })
 );
 
@@ -133,12 +146,7 @@ app.use("/api/seo", seoRoutes);
 // SERVER
 // =====================================================
 
-app.listen(PORT, () => {
-  console.log(
-    `Server running on http://localhost:${PORT}`
-  );
-
-  console.log(
-    `Images available at http://localhost:${PORT}/images`
-  );
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`THERYNOX API running on port ${PORT}`);
+  console.log(`Images available at /images`);
 });
