@@ -1,18 +1,16 @@
 import axios from "axios";
 
 // =====================================================
-// API BASE URL
+// PRODUCTION / LOCAL API URL
 // =====================================================
 //
-// Local:
-//   http://localhost:5000/api
-//
 // Production:
-//   https://therynox-api.onrender.com/api
+// REACT_APP_API_URL=https://therynox-api.onrender.com/api
 //
-// CRA uses REACT_APP_* variables at build time.
+// Local:
+// If the environment variable is not present,
+// localhost:5000/api will be used.
 //
-import axios from "axios";
 
 const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
@@ -33,11 +31,12 @@ api.interceptors.request.use(
     );
 
     if (token) {
+      config.headers = config.headers || {};
       config.headers.Authorization = `Bearer ${token}`;
     }
 
-    // Let Axios/browser set the correct multipart boundary
-    // when uploading FormData.
+    // Let Axios/browser set the multipart boundary
+    // automatically when sending FormData.
     if (
       typeof FormData !== "undefined" &&
       config.data instanceof FormData
