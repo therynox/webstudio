@@ -1,0 +1,405 @@
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-section {
+  width: 100%;
+  background: #f5f4ef;
+  color: #111;
+  overflow: hidden;
+}
+
+.process-container {
+  width: min(1400px, calc(100% - 120px));
+  margin: 0 auto;
+  padding: 130px 0 80px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.process-intro {
+  padding-bottom: 75px;
+  border-bottom: 1px solid #d8d6d0;
+}
+
+.process-label {
+  margin-bottom: 28px;
+
+  color: #ff5a1f;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.process-heading-wrap {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 60px;
+}
+
+.process-heading-wrap h2 {
+  margin: 0;
+
+  font-size: clamp(58px, 7vw, 100px);
+  line-height: 0.88;
+
+  font-weight: 500;
+
+  letter-spacing: -5px;
+}
+
+.process-heading-wrap p {
+  margin: 0 0 5px;
+
+  max-width: 300px;
+
+  color: #666;
+
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   PROCESS GRID
+========================================================= */
+
+.process-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  border-bottom: 1px solid #d8d6d0;
+}
+
+.process-card {
+  position: relative;
+
+  min-height: 370px;
+
+  padding: 34px 30px 45px;
+
+  border-right: 1px solid #d8d6d0;
+}
+
+.process-card:first-child {
+  padding-left: 0;
+}
+
+.process-card:last-child {
+  border-right: 0;
+
+  padding-right: 0;
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.process-card-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.process-number {
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  color: #777;
+}
+
+.process-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #ff5a1f;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.process-card-content {
+  position: absolute;
+
+  left: 30px;
+  right: 30px;
+  bottom: 45px;
+}
+
+.process-card:first-child .process-card-content {
+  left: 0;
+}
+
+.process-card:last-child .process-card-content {
+  right: 0;
+}
+
+.process-card-content h3 {
+  margin: 0 0 18px;
+
+  font-size: 25px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.8px;
+}
+
+.process-card-content p {
+  max-width: 255px;
+
+  margin: 0;
+
+  color: #666;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   CONNECTING LINE
+========================================================= */
+
+.process-line {
+  position: absolute;
+
+  top: 39px;
+  right: -1px;
+
+  width: 25px;
+  height: 1px;
+
+  background: #111;
+
+  transform: translateX(50%);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.process-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding-top: 24px;
+
+  color: #888;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .process-container {
+    width: calc(100% - 60px);
+
+    padding-top: 100px;
+  }
+
+  .process-heading-wrap h2 {
+    font-size: 70px;
+  }
+
+  .process-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .process-card {
+    min-height: 320px;
+
+    border-bottom: 1px solid #d8d6d0;
+  }
+
+  .process-card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .process-card:nth-child(3),
+  .process-card:nth-child(4) {
+    border-bottom: 0;
+  }
+
+  .process-card:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .process-card:nth-child(4) {
+    padding-right: 0;
+  }
+
+  .process-card:nth-child(3)
+    .process-card-content {
+    left: 0;
+  }
+
+  .process-card:nth-child(4)
+    .process-card-content {
+    right: 0;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .process-container {
+    width: calc(100% - 36px);
+
+    padding: 80px 0 45px;
+  }
+
+
+  /* INTRO */
+
+  .process-intro {
+    padding-bottom: 45px;
+  }
+
+  .process-label {
+    margin-bottom: 20px;
+
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+  }
+
+  .process-heading-wrap {
+    display: block;
+  }
+
+  .process-heading-wrap h2 {
+    font-size: 50px;
+
+    line-height: 0.92;
+
+    letter-spacing: -2.5px;
+  }
+
+  .process-heading-wrap p {
+    margin-top: 25px;
+
+    font-size: 14px;
+  }
+
+
+  /* GRID */
+
+  .process-grid {
+    display: block;
+
+    border-bottom: 0;
+  }
+
+  .process-card {
+    min-height: auto;
+
+    padding: 28px 0 30px;
+
+    border-right: 0 !important;
+
+    border-bottom: 1px solid #d8d6d0;
+  }
+
+  .process-card:last-child {
+    border-bottom: 0;
+  }
+
+
+  /* CARD TOP */
+
+  .process-card-top {
+    margin-bottom: 42px;
+  }
+
+  .process-number {
+    font-size: 10px;
+  }
+
+  .process-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+
+  /* CONTENT */
+
+  .process-card-content,
+  .process-card:first-child .process-card-content,
+  .process-card:last-child .process-card-content {
+    position: static;
+  }
+
+  .process-card-content h3 {
+    margin-bottom: 12px;
+
+    font-size: 22px;
+
+    letter-spacing: -0.5px;
+  }
+
+  .process-card-content p {
+    max-width: 340px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+  }
+
+
+  /* REMOVE DESKTOP LINE */
+
+  .process-line {
+    display: none;
+  }
+
+
+  /* FOOTER */
+
+  .process-footer {
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+
+    gap: 12px 25px;
+
+    padding-top: 25px;
+
+    font-size: 8px;
+  }
+}

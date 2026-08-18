@@ -1,0 +1,422 @@
+/* =========================================================
+   TECHNOLOGY
+========================================================= */
+
+.technology-section {
+  width: 100%;
+  background: #0b0b0b;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.technology-inner {
+  width: min(1400px, calc(100% - 120px));
+  margin: 0 auto;
+  padding: 120px 0 80px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.technology-heading {
+  display: grid;
+  grid-template-columns: 0.7fr 1.8fr 1fr;
+  align-items: end;
+  gap: 50px;
+
+  padding-bottom: 75px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.technology-label {
+  align-self: start;
+
+  padding-top: 8px;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  color: #ff5a1f;
+}
+
+.technology-heading h2 {
+  margin: 0;
+
+  font-size: clamp(48px, 5vw, 78px);
+
+  line-height: 0.95;
+
+  letter-spacing: -4px;
+
+  font-weight: 500;
+}
+
+.technology-heading p {
+  margin: 0;
+
+  max-width: 330px;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   GROUPS
+========================================================= */
+
+.technology-groups {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  border-bottom: 1px solid
+    rgba(255, 255, 255, 0.14);
+}
+
+.technology-group {
+  min-width: 0;
+
+  padding: 34px 28px 40px;
+
+  border-right: 1px solid
+    rgba(255, 255, 255, 0.14);
+}
+
+.technology-group:first-child {
+  padding-left: 0;
+}
+
+.technology-group:last-child {
+  border-right: 0;
+
+  padding-right: 0;
+}
+
+
+/* =========================================================
+   GROUP HEADER
+========================================================= */
+
+.technology-group-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.technology-group-header span:last-child {
+  color: #ff5a1f;
+}
+
+
+/* =========================================================
+   TECHNOLOGY ITEMS
+========================================================= */
+
+.technology-grid {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.technology-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  min-height: 42px;
+
+  padding: 8px 10px;
+
+  border: 1px solid transparent;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.technology-item:hover {
+  transform: translateX(5px);
+
+  background: rgba(255, 255, 255, 0.055);
+
+  border-color:
+    rgba(255, 255, 255, 0.1);
+}
+
+.technology-icon {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 19px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.technology-item:hover .technology-icon {
+  color: #ff5a1f;
+
+  transform: scale(1.12);
+}
+
+.technology-item span {
+  font-size: 13px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  white-space: nowrap;
+}
+
+.technology-item:hover span {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.technology-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-top: 24px;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .technology-inner {
+    width: min(100% - 60px, 900px);
+  }
+
+  .technology-heading {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding-bottom: 55px;
+  }
+
+  .technology-heading h2 {
+    font-size: 58px;
+  }
+
+  .technology-heading p {
+    max-width: 500px;
+  }
+
+  .technology-groups {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .technology-group:nth-child(3) {
+    border-right: 0;
+  }
+
+  .technology-group:nth-child(4),
+  .technology-group:nth-child(5) {
+    border-top: 1px solid
+      rgba(255, 255, 255, 0.14);
+  }
+
+  .technology-group:nth-child(4) {
+    padding-left: 0;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .technology-inner {
+    width: calc(100% - 36px);
+
+    padding: 75px 0 45px;
+  }
+
+
+  /* HEADER */
+
+  .technology-heading {
+    gap: 16px;
+
+    padding-bottom: 40px;
+  }
+
+  .technology-label {
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+  }
+
+  .technology-heading h2 {
+    font-size: 43px;
+
+    line-height: 0.98;
+
+    letter-spacing: -2px;
+  }
+
+  .technology-heading p {
+    font-size: 14px;
+
+    line-height: 1.5;
+  }
+
+
+  /* GROUPS */
+
+  .technology-groups {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .technology-group {
+    padding: 25px 15px 30px;
+
+    border-right: 1px solid
+      rgba(255, 255, 255, 0.14);
+  }
+
+  .technology-group:first-child {
+    padding-left: 0;
+  }
+
+  .technology-group:nth-child(2) {
+    padding-right: 0;
+
+    border-right: 0;
+  }
+
+  .technology-group:nth-child(3) {
+    padding-left: 0;
+
+    border-top: 1px solid
+      rgba(255, 255, 255, 0.14);
+  }
+
+  .technology-group:nth-child(4) {
+    border-right: 0;
+
+    border-top: 1px solid
+      rgba(255, 255, 255, 0.14);
+
+    padding-right: 0;
+  }
+
+  .technology-group:nth-child(5) {
+    grid-column: 1 / -1;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    border-top: 1px solid
+      rgba(255, 255, 255, 0.14);
+  }
+
+
+  /* ITEMS */
+
+  .technology-group-header {
+    margin-bottom: 18px;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .technology-grid {
+    gap: 4px;
+  }
+
+  .technology-item {
+    min-height: 38px;
+
+    padding: 6px 4px;
+
+    gap: 9px;
+  }
+
+  .technology-icon {
+    width: 22px;
+    height: 22px;
+
+    font-size: 17px;
+  }
+
+  .technology-item span {
+    font-size: 11px;
+
+    white-space: normal;
+  }
+
+
+  /* BOTTOM */
+
+  .technology-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    padding-top: 20px;
+
+    font-size: 8px;
+  }
+}
