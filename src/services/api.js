@@ -1,7 +1,25 @@
 import axios from "axios";
 
+// =====================================================
+// API BASE URL
+// =====================================================
+//
+// Local:
+//   http://localhost:5000/api
+//
+// Production:
+//   https://therynox-api.onrender.com/api
+//
+// CRA uses REACT_APP_* variables at build time.
+//
+import axios from "axios";
+
+const API_BASE_URL =
+  process.env.REACT_APP_API_URL ||
+  "http://localhost:5000/api";
+
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: API_BASE_URL,
 });
 
 // =====================================================
@@ -18,8 +36,12 @@ api.interceptors.request.use(
       config.headers.Authorization = `Bearer ${token}`;
     }
 
-    // Let the browser/Axios set the multipart boundary for FormData.
-    if (typeof FormData !== "undefined" && config.data instanceof FormData) {
+    // Let Axios/browser set the correct multipart boundary
+    // when uploading FormData.
+    if (
+      typeof FormData !== "undefined" &&
+      config.data instanceof FormData
+    ) {
       delete config.headers["Content-Type"];
       delete config.headers["content-type"];
     }
@@ -47,17 +69,8 @@ api.interceptors.response.use(
         error.response?.data
       );
 
-      /*
-       * Do NOT immediately remove the token for
-       * every 401 while developing.
-       *
-       * This makes debugging much easier.
-       */
-
       const currentPath = window.location.pathname;
 
-      // If user is already on login page,
-      // don't redirect again.
       if (currentPath !== "/admin/login") {
         localStorage.removeItem(
           "therynox_admin_token"

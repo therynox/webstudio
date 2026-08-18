@@ -21,51 +21,8 @@ import {
 import PageLayout from "../components/layout/PageLayout";
 import PageHeader from "../components/layout/PageHeader";
 import api from "../services/api";
+import { getMediaUrl } from "../utils/media";
 
-
-// =========================================================
-// PROJECT IMAGE URL
-// =========================================================
-const API_ORIGIN =
-  process.env.REACT_APP_API_ORIGIN ||
-  "http://localhost:5000";
-
-function getProjectImageUrl(value) {
-  if (!value) return "";
-
-  let image = value;
-
-  if (typeof image === "object") {
-    image =
-      image.url ||
-      image.src ||
-      image.path ||
-      image.image ||
-      image.filename ||
-      "";
-  }
-
-  image = String(image).trim();
-
-  if (!image) return "";
-
-  if (
-    image.startsWith("http://") ||
-    image.startsWith("https://") ||
-    image.startsWith("data:") ||
-    image.startsWith("blob:")
-  ) {
-    return image;
-  }
-
-  image = image.replace(/\\/g, "/");
-
-  if (image.startsWith("/")) {
-    return `${API_ORIGIN}${image}`;
-  }
-
-  return `${API_ORIGIN}/${image}`;
-}
 
 // =========================================================
 // STATUS NORMALIZER
@@ -996,13 +953,13 @@ function ProjectCard({
               </div>
 
             </>
-          ) : getProjectImageUrl(project.coverImage) ? (
+          ) : getMediaUrl(project.coverImage) ? (
 
             /* =================================================
                PUBLISHED IMAGE
             ================================================= */
             <img
-              src={getProjectImageUrl(project.coverImage)}
+              src={getMediaUrl(project.coverImage)}
               alt={
                 project.title ||
                 "Project"
